@@ -4,7 +4,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.box = "generic/arch"
   
-  
   config.vm.provider "virtualbox" do |vb|
     vb.name = "archlinux"
     # Display the VirtualBox GUI when booting the machine
@@ -15,5 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ['modifyvm', :id, '--clipboard', 'bidirectional']
     vb.customize ["modifyvm", :id, "--vram", "64"]
   end
+  
+  config.vm.provision "shell", path: "bootstrap.sh"
 
 end
