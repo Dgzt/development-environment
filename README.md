@@ -1,2 +1,2 @@
-# development-environment
-Arch based development environment
+## Important
+This project is under development.
