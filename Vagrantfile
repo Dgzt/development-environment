@@ -15,6 +15,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--vram", "64"]
   end
   
+  config.vm.provision "file", source: ".variables", destination: "/home/vagrant/.variables"
   config.vm.provision "shell", path: "bootstrap.sh"
 
 end

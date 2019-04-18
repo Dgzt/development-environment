@@ -1,0 +1,4 @@
+# The default console keymap is US. But you can use e.g.: "hu", "de-latin1", etc.
+# https://wiki.archlinux.org/index.php/Installation_guide#Set_the_keyboard_layout
+# If the variable is empty then will be used the default keymap.
+CONSOLE_KEYMAP=hu
