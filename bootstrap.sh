@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Update the system before setting up
+pacman -Syu --noconfirm
+
 # Convert the variables file type to unix type
 pacman -S dos2unix --noconfirm
 dos2unix .variables
