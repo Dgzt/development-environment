@@ -11,10 +11,10 @@ dos2unix .variables
 source /home/vagrant/.variables
 
 # Set the keyboard loayout
-if [ ! -z "$CONSOLE_KEYMAP" ]
+if [ ! -z "$KEYMAP" ]
 then
-    echo "Use console keymap: ${CONSOLE_KEYMAP}"
-    echo "KEYMAP=${CONSOLE_KEYMAP}" > /etc/vconsole.conf
+    echo "Use console keymap: ${KEYMAP}"
+    echo "KEYMAP=${KEYMAP}" > /etc/vconsole.conf
 else
     echo "Use the default (US) kaymap."
 fi
@@ -28,9 +28,16 @@ then
         pacman -Rs --noconfirm virtualbox-guest-utils-nox
         pacman -S --noconfirm virtualbox-guest-utils
         
+        # Install LXQt with dependencies
         pacman -S --noconfirm xorg sddm lxqt oxygen-icons
         
+        # Start sddm at startup
         systemctl enable sddm
+        
+        if [ ! -z "$KEYMAP" ]
+        then
+            localectl --no-convert set-x11-keymap "${KEYMAP}"
+        fi
     fi
 fi
 
