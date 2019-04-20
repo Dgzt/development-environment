@@ -19,5 +19,20 @@ else
     echo "Use the default (US) kaymap."
 fi
 
+if [ ! -z "$DESKTOP_ENVIRONMENT" ]
+then
+    if [ "$DESKTOP_ENVIRONMENT" != "lxqt" ]
+        echo "WARNING! Invalid DESKTOP_ENVIRONMENT option: ${DESKTOP_ENVIRONMENT}"
+    then 
+        # Use VB guest utils for X
+        pacman -Rs --noconfirm virtualbox-guest-utils-nox
+        pacman -S --noconfirm virtualbox-guest-utils
+        
+        pacman -S --noconfirm xorg sddm lxqt oxygen-icons
+        
+        systemctl enable sddm
+    fi
+fi
+
 # Validate the changes
 reboot
