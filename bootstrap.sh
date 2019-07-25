@@ -41,5 +41,14 @@ then
     fi
 fi
 
+# Setup etckeeper
+pacman -S etckeeper --noconfirm
+etckeeper init
+git config --global user.email "vagrant@example.com"
+git config --global user.name "Vagrant"
+etckeeper commit "first commit"
+systemctl enable etckeeper.timer
+etckeeper commit "enable etckeeper"
+
 # Validate the changes
 reboot
