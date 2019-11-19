@@ -22,14 +22,15 @@ fi
 if [ ! -z "$DESKTOP_ENVIRONMENT" ]
 then
     if [ "$DESKTOP_ENVIRONMENT" != "lxqt" ]
+    then
         echo "WARNING! Invalid DESKTOP_ENVIRONMENT option: ${DESKTOP_ENVIRONMENT}"
-    then 
+    else
         # Use VB guest utils for X
         pacman -Rs --noconfirm virtualbox-guest-utils-nox
         pacman -S --noconfirm virtualbox-guest-utils
         
         # Install LXQt with dependencies
-        pacman -S --noconfirm xorg sddm lxqt oxygen-icons
+        pacman -S --noconfirm xorg sddm lxqt oxygen-icons ttf-dejavu
         
         # Start sddm at startup
         systemctl enable sddm
