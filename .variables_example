@@ -7,3 +7,6 @@ KEYMAP=
 #   - If empty then there will be none desktop environment
 #   - lxqt: LXQt desktop environment
 DESKTOP_ENVIRONMENT=
+
+# The default timezone of box is US/Pacific.
+TIMEZONE=UTC
